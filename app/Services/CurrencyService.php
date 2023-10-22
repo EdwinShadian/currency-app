@@ -32,7 +32,7 @@ class CurrencyService
     {
         $exchangeRate = $this->getRate($from, $to);
 
-        return bcmul($exchangeRate, $amount, 6);
+        return bcmul($exchangeRate, $amount, 2);
     }
 
     public function updateRates(array $rates, string $date): void

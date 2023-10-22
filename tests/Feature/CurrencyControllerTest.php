@@ -71,7 +71,7 @@ class CurrencyControllerTest extends TestCase
         $convertedValue = bcmul(
             bcdiv($currencies->get(1)->rate_to_usd, $currencies->get(0)->rate_to_usd, 6),
             '1000',
-            6,
+            2,
         );
 
         $assertedValue = [
