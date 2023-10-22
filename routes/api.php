@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
+
+use App\Http\Controllers\Api\CurrencyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('/currency')->group(function () {
+    Route::get('/', [CurrencyController::class, 'index'])->name('api.currency.index');
+    Route::get('/rate', [CurrencyController::class, 'rate'])->name('api.currency.rate');
+    Route::post('/convert', [CurrencyController::class, 'convert'])->name('api.currency.convert');
 });
